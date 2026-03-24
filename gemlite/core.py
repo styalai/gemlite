@@ -385,7 +385,7 @@ class GemLiteLinearTriton(torch.nn.Module):
             _pack_weights_over_cols = pack_weights_over_cols_triton if (W_q.device.type == "cuda") else pack_weights_over_cols_torch
 
             self.W_q, self.elements_per_sample = _pack_weights_over_cols(
-                W_q.view(self.orig_shape),
+                W_q.view(self.orig_shape.data if type(self.orig_shape) == nn.Parameter else self.orig_shape),
                 W_nbits=self.W_nbits,
                 packing_bitwidth=packing_bitwidth,
                 transpose=True,
