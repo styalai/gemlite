@@ -2,6 +2,7 @@
 # Written by Dr. Hicham Badri @Mobius Labs GmbH - 2025
 
 import torch
+import torch.nn as nn
 from torch import Tensor
 import numpy as np
 from enum import Enum
